@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -19,14 +19,15 @@ firebase.initializeApp({
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-const [user] = useAuthState(auth);
+
 
 function App() {
+
+  const [user] = useAuthState(auth);
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
+      {/* <header className="App-header">
+      </header> */}
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
